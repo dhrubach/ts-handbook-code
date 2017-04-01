@@ -1,6 +1,12 @@
-function printScore(serial : { name: string, score: number}) : void {
+/*
+ * without an interface
+ */
+console.log(`****************example 01***************`);
+
+function printScore(serial: { name: string, score: number }): void {
   console.log(`Name of the serial : ${serial.name}`);
-  console.log(`User score : ${serial.score}`);
+  console.log(`User score : ${serial.score}
+  `);
 }
 
 let serialObj = {
@@ -10,7 +16,11 @@ let serialObj = {
 
 printScore(serialObj);
 
-/// ---> PUTTING THIS INTO AN Interface
+/*
+ * use an interface to define type
+ */
+console.log(`****************example 02***************`);
+
 interface IScore {
   name: string;
   score: number;
@@ -18,18 +28,25 @@ interface IScore {
 
 function printScoreWithInterface(serial: IScore): void {
   console.log(`Name of the serial : ${serial.name}`);
-  console.log(`User Score : ${serial.score}`);
+  console.log(`User Score : ${serial.score}
+  `);
 }
 
 printScoreWithInterface(serialObj);
 
-const serialOnlyNameObj = { 
+const serialOnlyNameObj = {
   'name': 'Game Of Thrones'
 };
 
+// this call will fail as the input parameter and function argument are not type compatible
+// type checker requires a source type to have at least the properties defined in target
 //printScoreWithInterface(serialOnlyNameObj);
 
-/// INTERFACE WITH OPTIONAL PARAMETERS
+/*
+ * interface with optional parameter
+ */
+console.log(`****************example 03***************`);
+
 interface ISerial {
   name: string;
   season: number;
@@ -40,10 +57,11 @@ interface ISerial {
 function printSerialWithInterface(serial: ISerial): void {
   console.log(`Name of the serial : ${serial.name}`);
   console.log(`Season : ${serial.season}`);
-  console.log(`Director: ${serial.director}`);
+  console.log(`Director: ${serial.director}
+  `);
 }
 
-const gotObj = { 
+const gotObj = {
   'name': 'Game Of Thrones',
   'season': 7,
   'year': 2017
