@@ -4,14 +4,15 @@
 console.log(`****************example 01***************`);
 
 function printScore(serial: { name: string, score: number }): void {
-  console.log(`Name of the serial : ${serial.name}`);
-  console.log(`User score : ${serial.score}
-  `);
+	console.log(`
+		Name of the serial : ${serial.name}
+		User score : ${serial.score}
+	`);
 }
 
 let serialObj = {
-  'name': 'westworld',
-  'score': 10
+	name: 'westworld',
+	score: 10
 };
 
 printScore(serialObj);
@@ -22,25 +23,26 @@ printScore(serialObj);
 console.log(`****************example 02***************`);
 
 interface IScore {
-  name: string;
-  score: number;
+	name: string;
+	score: number;
 }
 
 function printScoreWithInterface(serial: IScore): void {
-  console.log(`Name of the serial : ${serial.name}`);
-  console.log(`User Score : ${serial.score}
-  `);
+	console.log(`
+		Name of the serial : ${serial.name}
+  		User Score : ${serial.score}
+	`);
 }
 
 printScoreWithInterface(serialObj);
 
 const serialOnlyNameObj = {
-  'name': 'Game Of Thrones'
+	name: 'Game Of Thrones'
 };
 
 // this call will fail as the input parameter and function argument are not type compatible
 // type checker requires a source type to have at least the properties defined in target
-//printScoreWithInterface(serialOnlyNameObj);
+// printScoreWithInterface(serialOnlyNameObj);
 
 /*
  * interface with optional parameter
@@ -48,23 +50,24 @@ const serialOnlyNameObj = {
 console.log(`****************example 03***************`);
 
 interface ISerial {
-  name: string;
-  season: number;
-  year: number;
-  director?: string;
+	name: string;
+	season: number;
+	year: number;
+	director?: string;
 }
 
 function printSerialWithInterface(serial: ISerial): void {
-  console.log(`Name of the serial : ${serial.name}`);
-  console.log(`Season : ${serial.season}`);
-  console.log(`Director: ${serial.director}
-  `);
+	console.log(`
+		Name of the serial : ${serial.name}
+  		Season : ${serial.season}
+  		Director: ${serial.director}
+	`);
 }
 
 const gotObj = {
-  'name': 'Game Of Thrones',
-  'season': 7,
-  'year': 2017
+	name: 'Game Of Thrones',
+	season: 7,
+	year: 2017
 };
 
 printSerialWithInterface(gotObj);
