@@ -6,9 +6,10 @@
     "jsRules": {},
     "rules": {
 		"indent": [true, "tabs"],
-		"quotemark": [true, "single", "avoid-escape"],
+		"max-classes-per-file": [true, 5],
 		"no-console": false,
-		"max-classes-per-file": [true, 5]
+		"no-string-literal": false,
+		"quotemark": [true, "single", "avoid-escape"]
 	},
     "rulesDirectory": []
 }
