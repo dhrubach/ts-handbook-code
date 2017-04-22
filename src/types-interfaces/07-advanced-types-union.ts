@@ -48,6 +48,9 @@ function isBeneficiary(signatory: IPrimaryOwner | IBeneficiary): signatory is IB
 // NOTE : due to type guard used in line 50, it is possible to access 'type' parameter
 // on 'signatory' object in line 55
 function displayBeneficiaryDetails(signatory: IPrimaryOwner | IBeneficiary): void {
+	// unique property 'signatory.type' is not accessible at this point
+	// it is only accessible within if block due to type guard
+
 	if (isBeneficiary(signatory)) {
 		console.log(`
 			Signatory Name : ${signatory.name}

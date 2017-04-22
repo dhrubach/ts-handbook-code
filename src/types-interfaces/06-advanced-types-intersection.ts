@@ -18,13 +18,13 @@ function combine<T, U>(first: T, second: U): T & U {
 
 	for (let prop in first) {
 		if (first.hasOwnProperty(prop)) {
-			(<any> result)[prop] = (<any> first)[prop];
+			result[prop] = (<any> first)[prop];
 		}
 	}
 
 	for (let prop in second) {
 		if (!result.hasOwnProperty(prop)) {
-			(<any> result)[prop] = (<any> second)[prop];
+			result[prop] = (<any> second)[prop];
 		}
 	}
 
