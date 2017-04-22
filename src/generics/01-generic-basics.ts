@@ -4,14 +4,15 @@
 console.log(`****************example 01***************`);
 
 function identity<T>(arg: T): T {
-  return arg;
+	return arg;
 }
 
-const languageIdentity = identity<string>("typescript");
+const languageIdentity = identity<string>('typescript');
 console.log(`Language : ${languageIdentity}`);
 
 const versionIdentity = identity<number>(2.3);
-console.log(`Version : ${versionIdentity}
+console.log(`
+	Version : ${versionIdentity}
 `);
 
 /*
@@ -19,7 +20,7 @@ console.log(`Version : ${versionIdentity}
  */
 console.log(`****************example 02***************`);
 
-const languageOtherIdentity = identity("javascript");
+const languageOtherIdentity = identity('javascript');
 console.log(`
     Language  : ${languageOtherIdentity}
 `);
@@ -30,7 +31,7 @@ console.log(`
 console.log(`****************example 03***************`);
 
 function otherIdentity<T>(arg: T): void {
-  console.log(`
+	console.log(`
     argument value : ${arg}
     argument type : ${typeof arg}
   `);
@@ -39,7 +40,7 @@ function otherIdentity<T>(arg: T): void {
 // argument name is not part of type compatibility check
 const newOtherIdentity: <T>(tparameter: T) => T = otherIdentity;
 newOtherIdentity<number>(10);
-newOtherIdentity<string>("ten");
+newOtherIdentity<string>('ten');
 
 /*
  * example 04 - using an interface in the example above
@@ -47,17 +48,16 @@ newOtherIdentity<string>("ten");
 console.log(`****************example 04***************`);
 
 interface IIdentity {
-  <T>(arg: T): T;
+	<T>(arg: T): T;
 }
 
 const identityWithInterface: IIdentity = otherIdentity;
-identityWithInterface<string>("typescript");
+identityWithInterface<string>('typescript');
 
 interface IOtherIdentity<T> {
-  (arg: T): T;
+	(arg: T): T;
 }
 
-//
-//const identityWithInterfaceTypeParameter: IOtherIdentity<string> = otherIdentity;
+// const identityWithInterfaceTypeParameter: IOtherIdentity<string> = otherIdentity;
 const identityWithInterfaceTypeParameter: IOtherIdentity<string> = identity;
-console.log(`Language : ${identityWithInterfaceTypeParameter("typescript")}`);
+console.log(`Language : ${identityWithInterfaceTypeParameter('typescript')}`);

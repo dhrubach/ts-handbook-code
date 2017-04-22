@@ -1,7 +1,7 @@
 /*
  *  Inteface
  *  Class
- *  Class Inheritance  
+ *  Class Inheritance
  *      'extends' keyword
  *      access modifiers : public, private, protected
  *      'protected' base class method
@@ -10,50 +10,53 @@
  */
 
 interface IProposal {
-  proposalId: number;
-  clientId: number;
-  name: string;
+	proposalId: number;
+	clientId: number;
+	name: string;
 }
 
 class Proposal implements IProposal {
-  proposalId: number;
-  clientId: number;
-  name: string;
+	public proposalId: number;
+	public clientId: number;
+	public name: string;
 
-  constructor(pid: number, cid: number, name: string) {
-    this.proposalId = pid;
-    this.clientId = cid;
-    this.name = name;
-  }
+	constructor(pid: number, cid: number, name: string) {
+		this.proposalId = pid;
+		this.clientId = cid;
+		this.name = name;
+	}
 
-  protected toString(): void {
-    console.log(`ProposalId : ${this.proposalId}`);
-    console.log(`ClientId : ${this.clientId}`);
-    console.log(`Proposal Name : ${this.name}`);
-  }
+	protected toString(): void {
+		console.log(`
+			ProposalId : ${this.proposalId}
+			ClientId : ${this.clientId}
+			Proposal Name : ${this.name}
+		`);
+	}
 }
 
 class AccountOwner extends Proposal {
-  primaryOwner: string;
-  telephone: string;
+	public primaryOwner: string;
+	public telephone: string;
 
-  constructor(powner: string, tel: string, proposalObj: IProposal) {
-    super(proposalObj.proposalId, proposalObj.clientId, proposalObj.name);
-    this.primaryOwner = powner;
-    this.telephone = tel;
-  }
+	constructor(powner: string, tel: string, proposalObj: IProposal) {
+		super(proposalObj.proposalId, proposalObj.clientId, proposalObj.name);
+		this.primaryOwner = powner;
+		this.telephone = tel;
+	}
 
-  toString(): void {
-    super.toString();
-    console.log(`Primary Owner : ${this.primaryOwner}`);
-    console.log(`Telephone : ${this.telephone}`);
-  }
+	public toString(): void {
+		super.toString();
+		console.log(`
+			Primary Owner : ${this.primaryOwner}
+			Telephone : ${this.telephone}
+		`);
+	}
 }
 
 const proposal = new AccountOwner('John Smith', '123456', {
-  proposalId: 12345,
-  clientId: 56789,
-  name: 'test-proposal-100'
-});
+	clientId: 56789,
+	name: 'test-proposal-100',
+	proposalId: 12345 });
 
 proposal.toString();
