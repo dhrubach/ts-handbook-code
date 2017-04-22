@@ -10,20 +10,21 @@ class Proposal {
 class Owner {
 	constructor(
 		public name: string,
-		public dob: string
-	) { }
+		public dob: string ) { }
 }
 
 function combine<T, U>(first: T, second: U): T & U {
-	let result = <T & U>{};
+	let result = <T & U> { };
 
 	for (let prop in first) {
-		(<any>result)[prop] = (<any>first)[prop];
+		if (first.hasOwnProperty(prop)) {
+			(<any> result)[prop] = (<any> first)[prop];
+		}
 	}
 
 	for (let prop in second) {
 		if (!result.hasOwnProperty(prop)) {
-			(<any>result)[prop] = (<any>second)[prop];
+			(<any> result)[prop] = (<any> second)[prop];
 		}
 	}
 
@@ -38,9 +39,10 @@ function displayDetails(combinedObject: Proposal & Owner): void {
 	`);
 }
 
-const proposal = new Proposal("prop-test-intersection", 12345, 900000);
-const account = new Owner("John", "01/01/1970");
+const proposal = new Proposal('prop-test-intersection', 12345, 900000);
+const account = new Owner('John', '01/01/1970');
 
+// type inference
 let combinedType = combine(proposal, account);
 displayDetails(combinedType);
 

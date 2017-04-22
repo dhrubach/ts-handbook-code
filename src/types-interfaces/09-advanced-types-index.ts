@@ -6,10 +6,14 @@
 console.log(`****************example 01***************`);
 console.log(``);
 
+/* tslint:disable */
+
 /*
 *	'keyof T' : for a given type 'T', 'keyof T' will return an union of
 *	known, public property names of 'T'
 */
 function pluck<T, K extends keyof T>(object: T, propNames: K[]): T[K][] {
-	return propNames.map(prop => object[prop]);
+	return propNames.map((prop) => object[prop]);
 }
+
+/* tslint:enable */
