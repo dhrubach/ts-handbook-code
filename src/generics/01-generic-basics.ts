@@ -39,6 +39,7 @@ function otherIdentity<T>(arg: T): void {
 
 // argument name is not part of type compatibility check
 const newOtherIdentity: <T>(tparameter: T) => T = otherIdentity;
+// console.log(typeof newOtherIdentity);
 newOtherIdentity<number>(10);
 newOtherIdentity<string>('ten');
 
@@ -60,4 +61,5 @@ interface IOtherIdentity<T> {
 
 // const identityWithInterfaceTypeParameter: IOtherIdentity<string> = otherIdentity;
 const identityWithInterfaceTypeParameter: IOtherIdentity<string> = identity;
+// console.log(typeof identityWithInterfaceTypeParameter);
 console.log(`Language : ${identityWithInterfaceTypeParameter('typescript')}`);
