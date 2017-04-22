@@ -1,3 +1,4 @@
+
 enum Rating {
 	Good,
 	Bad,
@@ -25,6 +26,7 @@ class Apple implements IMobile {
 class Samsung implements IMobile {
 	public name: string;
 	public rating: Rating;
+
 	constructor(nm: string, rt: Rating) {
 		this.name = nm;
 		this.rating = rt;
