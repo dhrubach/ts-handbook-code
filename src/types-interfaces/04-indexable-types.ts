@@ -35,16 +35,15 @@ console.log(`
  */
 console.log(`****************example 02***************`);
 
-class Division implements ICompany {
-	constructor(
-		public name: string,
-		public ticker: string,
-		public divisionName: string) { }
+interface IDivision extends ICompany {
+	name: string;
+	ticker: string;
+	divisionName: string;
 }
 
 interface ISpecialExchange {
 	[index: string]: ICompany;
-	[index: number]: Division;
+	[index: number]: IDivision;
 }
 
 const hansei: ISpecialExchange = {
@@ -62,11 +61,11 @@ const hansei: ISpecialExchange = {
 		ticker: 'SNAP' } };
 
 const facebook: ICompany = hansei['10'];
-const snapChat: Division = hansei[30];
+const snapChat: IDivision = hansei[30];
 
 console.log(`
 	Ticker Symbol of Facebook : ${facebook.ticker}
 	Division Name from Snapchat : ${snapChat.divisionName}
 `);
 
-export { ICompany, Division, IExchange, ISpecialExchange };
+export { ICompany, IDivision, IExchange, ISpecialExchange };
